@@ -23,16 +23,14 @@ const NavBar = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Doctos Prrtal</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Doctos Prrtal</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {manuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Get started</a>
-            </div>
+
         </div>
     );
 };
