@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Children } from 'react';
 
-const PrimaryButton = () => {
+const PrimaryButton = ({ children }) => {
     return (
         <div>
-            <button className="  btn btn-primary bg-gradient-to-l from-primary to-secondary text-white	 uppercase font-bold	">Get Started</button>
+            <button className="  btn btn-primary bg-gradient-to-l from-primary to-secondary text-white	 uppercase font-bold">{children}</button>
         </div>
     );
 };
