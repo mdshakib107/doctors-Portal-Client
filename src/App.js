@@ -4,7 +4,6 @@ import AppoinmentPage from "./Pages/AppoinmentPage/AppoinmentPage";
 import Login from "./Pages/Authentication/Login/Login";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import Home from "./Pages/HomePage/HomePage";
-import Footer from "./Pages/Shared/Footer/Footer";
 import NavBar from "./Pages/Shared/Header/NavBar";
 
 
@@ -22,7 +21,6 @@ function App() {
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
-      <Footer></Footer>
     </div>
   );
 }
