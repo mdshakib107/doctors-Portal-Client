@@ -7,6 +7,7 @@ import Login from "./Pages/Authentication/Login/Login";
 import RequireAuth from "./Pages/Authentication/RequireAuth/RequireAuth";
 import SingUp from "./Pages/Authentication/SingUp/SingUp";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import AllUser from "./Pages/Dashboard/Admin/AllUser";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyAppointments from "./Pages/Dashboard/User/MyAppointments ";
 import MyHistory from "./Pages/Dashboard/User/MyHistory";
@@ -21,23 +22,24 @@ function App() {
     <div >
       <NavBar></NavBar>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/appoinment" element={
           <RequireAuth>
             <AppoinmentPage />
           </RequireAuth>
         } />
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
-          <Route index element={<MyAppointments></MyAppointments>}></Route>
-          <Route path="review" element={<MyReview></MyReview>}></Route>
-          <Route path="history" element={<MyHistory></MyHistory>}></Route>
+          <Route index element={<MyAppointments />} />
+          <Route path="review" element={<MyReview />} />
+          <Route path="history" element={<MyHistory />} />
+          <Route path="users" element={<AllUser />} />
         </Route>
         {/* <Route path="/reviews" element={<}></Route> */}
-        <Route path="/contact" element={<ContactUs />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<SingUp />}></Route>
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SingUp />} />
       </Routes>
       <ToastContainer />
     </div>

@@ -2,7 +2,9 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loading from '../../../utils/Loading';
 
 const SingUp = () => {
@@ -14,6 +16,7 @@ const SingUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user || gUser)
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const navigate = useNavigate();
@@ -30,14 +33,14 @@ const SingUp = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (user || gUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        // alart('Your Account Create Succesfull');
+        toast.success('Your Account Create Succesfull');
         navigate(from, { replace: true });
     }
     return (
